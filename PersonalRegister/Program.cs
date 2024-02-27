@@ -36,7 +36,7 @@
                         // add user
                         Console.WriteLine("Name of user: ");
                         name = Console.ReadLine();
-                        Console.WriteLine("How much should the user have in Salary: ");
+                        Console.WriteLine("How much should the user have in Salary '$': ");
                         if(int.TryParse(Console.ReadLine(), out salary)){
                             AddUserToList(name, salary);
                         }
@@ -56,12 +56,16 @@
                     }
                     else
                     {
+                        Console.WriteLine("Invalid input");
+                        Console.WriteLine("Result: Exit");
                         Console.WriteLine("Program Closed!");
                         run = false;
                     }
                 }
                 else
                 {
+                    Console.WriteLine("Invalid input");
+                    Console.WriteLine("Result: Exit");
                     Console.WriteLine("Program Closed!");
                     run = false;
                 }
