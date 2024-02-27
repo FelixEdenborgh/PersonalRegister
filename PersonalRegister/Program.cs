@@ -13,41 +13,61 @@
         {
             
 
-            int choice, salary;
-            string name;
+            int salary, choice;
+            string name, input;
             bool run = true;
             
             while(run) 
             {
+                Console.WriteLine();
                 Console.WriteLine("Hey and welcome to this Register");
                 Console.WriteLine("Choice your option: ");
                 Console.WriteLine("1. Add Name & Salary");
                 Console.WriteLine("2. Show All");
                 Console.WriteLine();
                 Console.WriteLine("Every other input will result in EXIT!");
-                choice = Convert.ToInt32(Console.ReadLine());
-                
+                Console.WriteLine();
 
-                if (choice == 1)
+                input = Console.ReadLine();
+                if(int.TryParse(input, out choice))
                 {
-                    // add user
-                    Console.WriteLine("Name of user: ");
-                    name = Console.ReadLine();
-                    Console.WriteLine("How much should the user have in Salary: ");
-                    salary = Convert.ToInt32(Console.ReadLine());
+                    if (choice == 1)
+                    {
+                        // add user
+                        Console.WriteLine("Name of user: ");
+                        name = Console.ReadLine();
+                        Console.WriteLine("How much should the user have in Salary: ");
+                        if(int.TryParse(Console.ReadLine(), out salary)){
+                            AddUserToList(name, salary);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid input of salary");
+                            Console.WriteLine();
+                        }
 
-                    AddUserToList(name, salary);
+                        
 
-                }
-                else if (choice == 2)
-                {
-                    // view all users
-                    ShowUsersData();
+                    }
+                    else if (choice == 2)
+                    {
+                        // view all users
+                        ShowUsersData();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Program Closed!");
+                        run = false;
+                    }
                 }
                 else
                 {
+                    Console.WriteLine("Program Closed!");
                     run = false;
                 }
+                
+
+                
             }
             
         }
